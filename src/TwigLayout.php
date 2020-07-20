@@ -42,7 +42,7 @@ class TwigLayout implements LayoutInterface
 			'template_dir' => [BASEPATH . '/local/templates/'],
 			'strict_variables' => true,
 		], $settings);
-		$loader = new FilesystemLoader(array_merge($settings['template_dir'], [dirname(__FILE__) . '/templates/']));
+		$loader = new FilesystemLoader(array_merge($settings['template_dir'], [dirname(__FILE__) . '../templates/']));
 		MakeDirIfNotExists($settings['cache_path']);
 		$this->twig = new Environment($loader, [
 			'cache' => $settings['cache_path'],

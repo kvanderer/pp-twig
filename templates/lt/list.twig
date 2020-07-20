@@ -1,0 +1,13 @@
+{% for contentType, someObjects in objects %}
+	{% if format is not defined or format == contentType %}
+		{# {pager objects=$someObjects format=$contentType} #}
+		{% if template_exists('dt/' ~ contentType ~ '.twig') %}
+			{% include 'dt/' ~ contentType ~ '.twig' %}
+		{% else %}
+			{% for id, object in someObjects %}
+				{% include 'dt/notready.twig' with { 'format': contentType } %}
+			{% endfor %}
+		{% endif %}
+		{# {pager objects=$someObjects format=$contentType} #}
+	{% endif %}
+{% endfor %}

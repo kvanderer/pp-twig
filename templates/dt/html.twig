@@ -1,0 +1,10 @@
+<div>
+	<p>
+		{% if object.image %}
+			<img src="{{ object.image.path }}" width="{{ object.image.width }}" height="{{ object.image.height }}" />
+		{% endif %}
+	</p>
+	<p>
+		{{ object.text|escape }}
+	</p>
+</div>

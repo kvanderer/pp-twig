@@ -25,6 +25,7 @@
 			{% endif %}
 			{{ rootContent.title }}
 		</title>
+		{% include 'misc/css.twig' ignore missing %}
 	</head>
 	<body>
 		<div id="header">
@@ -34,7 +35,6 @@
 		<div id="mainarea">
 			<div id="content">
 				<h1>{{ currentTitle|striptags }}</h1>
-
 				{% if objects.hasCurrent() %}
 					{% include ['dt/' ~ currentStype ~ '.full.twig', 'lt/' ~ currentStype ~ '.twig', 'lt/notready.twig'] %}
 				{% else %}
@@ -48,5 +48,7 @@
 				2006-{{ "now"|date("Y") }} &copy; <a href="http://dalee.ru/">Далее</a>
 			</p>
 		</div>
+
+		{% include 'misc/js.tmpl' ignore missing %}
 	</body>
 </html>

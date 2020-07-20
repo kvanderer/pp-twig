@@ -1,0 +1,5 @@
+<form action="/error.action" method="post" id="form404">
+	<input type="hidden" name="url" value="http://{{ request.host }}{{ request.getRequestUri()|escape }}">
+	<input type="hidden" name="refererx" value="{{ request.getHttpReferer()|escape }}">
+	<p>{{ lang('error.notice')|raw }}</p>
+</form>

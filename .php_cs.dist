@@ -1,0 +1,10 @@
+<?php
+
+return Dalee\CodeStyle\Config::create()
+	->setFinder(
+		PhpCsFixer\Finder::create()
+			->exclude('Soap')
+			->notPath('Libs/SxGeo.php')
+			->in(__DIR__ . '/src')
+
+	);

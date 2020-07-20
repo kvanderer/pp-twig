@@ -1,0 +1,26 @@
+{
+    "name": "dalee/pp-twig",
+    "description": "Twig layout for pp-core",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dalee dev team",
+            "email": "dev@dalee.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "dalee/ppcs": "^1.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "dalee/pp-core": "dev-remove-smarty",
+        "dalee/php-config": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dalee\\PPTwig\\": ["src/"]
+        }
+    }
+}

@@ -1,0 +1,11 @@
+# pp-core
+/libpp
+
+# composer and npm
+/vendor
+/auth.json
+/.env
+
+# IDE
+/.idea
+/.vscode

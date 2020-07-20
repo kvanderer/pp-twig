@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	{% apply spaceless %}
+		{% set currentStype = tree.getCurrentType() %}
+		{% set currentCtype = objects.getCurrentType() %}
+
+		{% if response.isError() %}
+			{% set currentStype = 'error' %}
+		{% endif %}
+
+		{% set currentTitle %}
+			{% if response.isError() %}
+	Страница не найдена
+	{% elseif objects.hasCurrent() %}
+		{{ objects.current.title }}
+	{% elseif tree.hasCurrent() %}
+		{{ currentStructContent.title }}
+			{% endif %}
+		{% endset %}
+	{% endapply %}
+	<head>
+		<title>
+			{% if not tree.current.isRoot() %}
+				{{ currentTitle|striptags }}
+				{{ ' / ' }}
+			{% endif %}
+			{{ rootContent.title }}
+		</title>
+	</head>
+	<body>
+		<div id="header">
+			<h1>pp/core</h1>
+		</div>
+
+		<div id="mainarea">
+			<div id="content">
+				<h1>{{ currentTitle|striptags }}</h1>
+
+				{% if objects.hasCurrent() %}
+					{% include ['dt/' ~ currentStype ~ '.full.twig', 'lt/' ~ currentStype ~ '.twig', 'lt/notready.twig'] %}
+				{% else %}
+					{% include ['lt/' ~ currentStype ~ '.twig', 'lt/notready.twig'] %}
+				{% endif %}
+			</div>
+		</div>
+
+		<div id="footer">
+			<p>
+				2006-{{ "now"|date("Y") }} &copy; <a href="http://dalee.ru/">Далее</a>
+			</p>
+		</div>
+	</body>
+</html>
